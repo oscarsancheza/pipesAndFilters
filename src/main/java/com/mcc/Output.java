@@ -1,7 +1,6 @@
 package com.mcc;
 
-import java.io.CharArrayWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Output extends Filter {
 
@@ -22,6 +21,8 @@ public class Output extends Filter {
         c = input.read();
       }
 
+      Util.fromStringToFile(writer.toString(),"KWIC_file_output");
+
       if(onFinishListener != null) {
         onFinishListener.onFinish(writer.toString());
       }
@@ -32,5 +33,4 @@ public class Output extends Filter {
       System.exit(1);
     }
   }
-
 }

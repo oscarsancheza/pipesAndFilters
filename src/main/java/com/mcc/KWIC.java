@@ -6,7 +6,7 @@ import java.io.IOException;
 public class KWIC {
 
   private static final String path =
-      "/home/dessis-aux23/Documentos/maestria/pipesAndFilters/src/main/java/com/mcc/KWIC_file.txt";
+      "./src/main/java/com/mcc/KWIC_file.txt";
 
   public void execute(String file, Filter.onFinishListener finishListener) {
     try {

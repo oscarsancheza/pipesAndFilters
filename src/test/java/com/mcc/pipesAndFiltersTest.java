@@ -9,11 +9,10 @@ import java.util.concurrent.ExecutionException;
 
 public class pipesAndFiltersTest {
 
-  private final String path =
-      "/home/dessis-aux23/Documentos/maestria/pipesAndFilters/src/main/java/com/mcc/KWIC_file.txt";
+  private final String path = "./src/main/java/com/mcc/KWIC_file.txt";
+  private final String path2 = "./src/main/java/com/mcc/KWIC_file_pruebas.txt";
+  private final String pathOutput = "./src/main/java/com/mcc/KWIC_file_output.txt";
 
-  private final String path2 =
-      "/home/dessis-aux23/Documentos/maestria/pipesAndFilters/src/main/java/com/mcc/KWIC_file_pruebas.txt";
 
   private KWIC kwic;
   private KWIC kwic2;
@@ -41,5 +40,12 @@ public class pipesAndFiltersTest {
     kwic2.execute(path2, future2::complete);
 
     Assert.assertNotEquals(future.get(), future2.get());
+  }
+  @Test
+  public void isFileInputDataNotEqualToOutputData() throws ExecutionException, InterruptedException{
+      String content_Input = Util.fromFileDataToString(path);
+      kwic.execute(pathOutput,future::complete);
+
+      Assert.assertNotEquals(content_Input,future.get());
   }
 }

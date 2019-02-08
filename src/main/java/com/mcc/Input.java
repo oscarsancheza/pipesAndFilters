@@ -19,7 +19,6 @@ public class Input extends Filter {
         output.write(character);
         character = in.read();
       }
-
       output.write('\n');
       output.closeWriter();
     } catch (IOException exc) {
